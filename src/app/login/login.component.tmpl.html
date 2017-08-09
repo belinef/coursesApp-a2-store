@@ -1,0 +1,41 @@
+<div class="login">
+  <div class="panel panel-default col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+    <div class="panel-body">
+      <div class="alert alert-warning" role="alert" *ngIf="(login$ | async).error">Wrong login or password</div>
+      <h2 class="login__header">Sign In</h2>
+      <form action="" class="sign-in login__form" (submit)="submitForm($event)">
+        <div class="sign-in__field form-group"
+             [ngClass]="{'has-error': !form.userName.valid}">
+          <label class="sign-in__label" for="sign-in_user"> User Name :</label>
+          <input type="text"
+                 class="form-control sign-in__input"
+                 id="sign-in_user"
+                 (blur)="validateInput('userName')"
+                 [(ngModel)]="form.userName.value"
+                 name="userName"
+                 pattern="^[a-zA-Z\.]+$"
+                 autofocus>
+          <span class="sign-in__wrong"
+                [ngClass]="{hidden: form.userName.valid}"> * please enter</span>
+        </div>
+        <div class="sign-in__field form-group"
+             [ngClass]="{'has-error': !form.userPassword.valid}">
+          <label class="sign-in__label" for="sign-in_password"> Password :</label>
+          <input type="password"
+                 class="form-control sign-in__input"
+                 id="sign-in_password"
+                 (blur)="validateInput('userPassword')"
+                 (change)="validateInput('userPassword')"
+                 [(ngModel)]="form.userPassword.value"
+                 name="userPassword">
+          <span class="sign-in__wrong"
+                [ngClass]="{hidden: form.userPassword.valid}"> * please enter</span>
+        </div>
+        <button class="sign-in__button btn btn-success"
+                type="submit"
+                (submit)="submitForm($event)"
+                [disabled]="!form.valid"> Sign in</button>
+      </form>
+    </div>
+  </div>
+</div>

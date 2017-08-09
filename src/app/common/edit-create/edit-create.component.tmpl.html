@@ -1,0 +1,95 @@
+<div class="course-edit">
+  <div class="jumbotron">
+    <div class="container">
+      <form class="edit-form" (submit)="handleSaveCourse()">
+        <div class="edit-form__field">
+          <div class="form-group">
+                        <span class="course-edit__label">
+                            Course Name:
+                        </span>
+            <input type="text"
+                   class="course-edit__input form-control"
+                   placeholder="enter course name"
+                   [value]="currentCourse$.name" name="courseName"
+                   (blur)="inputChange('name',$event.target.value)"
+                    required />
+          </div>
+        </div>
+        <div class="edit-form__field">
+          <div class="form-group">
+                        <span class="course-edit__label course-edit--description">
+                            Course Description:
+                        </span>
+            <textarea type="text"
+                      class="course-edit__input course-edit__input--description form-control"
+                      placeholder="enter course description"
+                      [value]="currentCourse$.description"
+                      (blur)="inputChange('description',$event.target.value)"
+                      name="courseDescription"
+                      required>
+                        </textarea>
+          </div>
+        </div>
+        <div class="edit-form__field">
+          <div class="form-group">
+                        <span class="course-edit__label">
+                            Course date start:
+                        </span>
+            <input type="date"
+                   class="course-edit__input course-edit__input--date form-control"
+                   placeholder="enter course date start MM.DD.YYYY"
+                   [value]="humanDate"
+                   (change)="dateChange($event.target.value)"
+                   name="courseDate"
+                   required>
+          </div>
+        </div>
+        <div class="edit-form__field">
+          <div class="form-group">
+                        <span class="course-edit__label">
+                            Course duration:
+                        </span>
+            <input type="number"
+                   class="course-edit__input course-edit__input--duration form-control"
+                   placeholder="duration"
+                   maxlength="5"
+                   [value]="currentCourse$.duration"
+                   (blur)="inputChange('duration', $event.target.value)"
+                   name="courseDuration"
+                   required>
+            <span class="course-edit__label">
+                            {{ prettyCourseDuration }}
+                        </span>
+          </div>
+        </div>
+        <div class="authors-edit course-edit__authors">
+                <span class="authors__label course-edit__label">
+                    Authors:
+                </span>
+          <cdp-swap
+            (onSearch)="searchAuthor($event)"
+            (onAddNew)="addAuthor($event)"
+            (onSwap)="authorsChanged($event)"
+            [current]="currentCourse$.authors"
+            [available]="(authors$ | async).list"
+            [loading]="(authors$ | async).loading"></cdp-swap>
+        </div>
+
+        <div class="course-edit__controls clearfix">
+                <span class="course-edit__button btn btn-warning btn-lg pull-right" (click)="handleCancel()">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    Cancel
+                </span>
+          <span class="course-edit__button btn btn-success btn-lg pull-right" (click)="handleSaveCourse()">
+            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+            Save changes
+          </span>
+
+        </div>
+      </form>
+
+
+    </div>
+
+  </div>
+</div>

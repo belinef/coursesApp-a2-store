@@ -1,0 +1,76 @@
+<div class="swap">
+  <div class="authors-edit__list list-group">
+    <div class="swap__head list-group-item active">
+      Actual
+    </div>
+    <div class="swap-show-list">
+      <div class="swap-show-list--empty list-group-item"
+           *ngIf="!current.length">
+        Not specified
+      </div>
+      <div *ngFor="let item of current; let i = index;"
+           class="authors-edit authors-edit--actual list-group-item list-group-item-warning"
+           (click)="itemSelection(i, 'result')"
+           [ngClass]="{active: resultListChecked[i]}">
+        {{ item }}
+      </div>
+    </div>
+  </div>
+  <div class="authors-controls">
+    <ul class="pager">
+      <li class="authors-controls__item">
+                            <span class="authors-controls__button authors-controls__button--add"
+                                  (click)="swapToCurrent()">
+                                &larr; Add
+                            </span>
+      </li>
+      <li>
+                            <span class="authors-controls__button authors-controls__button--remove"
+                                  (click)="swapFromCurrent()">
+                                Remove &rarr;
+                            </span>
+      </li>
+    </ul>
+  </div>
+  <div class="authors-edit__list authors-edit__list--available list-group">
+    <div class="swap__head list-group-item active">
+      Available
+    </div>
+    <form class="authors-search list-group-item">
+      <input type="text" class="authors-search__input form-control"
+             placeholder="Search"
+             [(ngModel)]="search"
+             name="search">
+      <button class="authors-search__button btn btn-default"
+              (click)="findItems()">
+        Find
+      </button>
+      <button class="authors-search__button btn btn-default"
+              (click)="addNewItem()">
+        Add new
+      </button>
+    </form>
+    <div class="swap-show-list">
+      <div class="swap-show-list--empty list-group-item list-group-item-info"
+           *ngIf="!available.length">
+                            <span *ngIf="!loading">
+                                Not Founded
+                            </span>
+        <span *ngIf="loading">
+                                <span class="search--loading">Loading...</span>
+                    <img [src]="'assets/img/loader.gif'" width="30" height="30">
+                            </span>
+      </div>
+      <div *ngIf="available.length">
+        <a *ngFor="let availableItem of available; let i = index;"
+          class="authors-edit author-edit--search list-group-item list-group-item-info"
+          (click)="itemSelection(i, 'available')"
+          [ngClass]="{active: availableListChecked[i]}">
+          {{ availableItem }}
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</div>

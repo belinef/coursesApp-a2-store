@@ -1,0 +1,13 @@
+<div class="breadcrumbs">
+  <span *ngFor="let item of links; let i = index; let lst = last">
+    <span class="breadcrumb__item"
+          [routerLink]="item.link"
+          [ngClass]="{'breadcrumb__item--last' : lst}">
+    {{item.name}}
+    </span>
+    <span class="breadcrumb__separator">
+        {{ i === links.length - 1 ? '' : '/'}}
+    </span>
+</span>
+</div>
+

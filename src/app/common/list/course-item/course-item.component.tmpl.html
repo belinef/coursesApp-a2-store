@@ -1,0 +1,29 @@
+<div class="course courses-list__item panel panel-info my-animation"
+     [@courseAnimation]="delete"
+     (@courseAnimation.done)="deleteComplete($event)"
+     [ngClass]="{'panel-danger': course.rejected}">
+  <div class="course__heading panel-heading">
+    <h2 class="course__name panel-title">
+      <a (click)="goToDetails(course.id)">{{course.name}}
+      </a>
+    </h2>
+    <span class="course__duration">
+                <span class="course__label">
+                    Duration:
+                </span>
+                {{prettyCourseDuration}}
+            </span>
+    <span class="course__date">
+                <span class="course__label">
+                    Start :
+                </span>
+                {{course.date | date:"dd-MM-yyyy"}}
+            </span>
+  </div>
+  <div class="course__body panel-body">
+    <div class="course__description">
+      {{course.description}}
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+.login {
+  margin-top: 100px;
+}
+
+.login__header {
+  text-align: center;
+}
+
+.sign-in {
+  margin: 25px auto;
+  width: 75%;
+}
+
+.sign-in__field {
+  margin-bottom: 10px;
+}
+
+.sign-in__label {
+  min-width: 100px;
+}
+
+.sign-in__input {
+  display: inline-block;
+  width: 50%;
+}
+
+.sign-in__button {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 25px;
+}
+
+.sign-in__wrong {
+  color: brown;
+}
+
+@media screen and (max-width: 600px) {
+  .login {
+    margin-top: 20px;
+  }
+}

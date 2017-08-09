@@ -1,0 +1,41 @@
+.courses-list {
+  padding: 25px;
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 835px;
+}
+
+.course-list--empty {
+  text-align: center;
+}
+
+.courses-loading {
+  display: inline-block;
+  font-size: 25px;
+}
+
+.manipulation {
+  margin-bottom: 25px;
+}
+.manipulation-form {
+  position: relative;
+  width: 50%;
+  display: inline-block;
+}
+.manipulation-form__search {
+  width: 50%;
+  margin-right: 25px;
+  display: inline-block;
+}
+
+.manipulation-form__find {
+  text-transform: uppercase;
+  padding: 5px 30px;
+}
+
+.manipulation__addCourse {
+  position: absolute;
+  right: 40px;
+  padding: 5px 40px;
+  text-transform: uppercase;
+}

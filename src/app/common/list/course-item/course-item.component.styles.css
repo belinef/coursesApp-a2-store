@@ -1,0 +1,50 @@
+.course {
+  position: relative;
+  left: 0;
+  max-height: 200px;
+}
+
+.course.green {
+  background: green;
+}
+
+.course.removing{
+  transition: 1s left, 2s max-height;
+  left: -150%;
+  max-height: 0;
+  margin-bottom: 0;
+}
+
+.course__name,
+.course__duration,
+.course__date{
+  display: inline-block;
+  width: 30%;
+}
+
+.course__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.course__name,
+.course__label {
+  font-weight: bold;
+}
+
+.course__body {
+  font-size: 0;
+  height: 140px;
+  overflow: hidden;
+}
+.course__description {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.course__description {
+  width : 85%;
+  vertical-align: top;
+}
+

@@ -1,0 +1,38 @@
+<div class="admin-chat" [ngClass]="{'small': chat.whatToShow === 'close'}">
+
+      <span class="btn btn-default btn-md admin-chat__toggler-btn" (click)="whatToshow()">
+        <span class="badge" aria-hidden="true">{{chat.usersOnline.length}}</span> Users
+      </span>
+
+
+    <div class="users-list" *ngIf="chat.whatToShow === 'list'">
+      <ul class="list-group">
+        <li class="list-group-item"
+            *ngFor="let user of chat.usersOnline"
+            (click)="showChat(user)">
+          <span class="badge" *ngIf="chat.usersUnreadedMessages[user]">{{chat.usersUnreadedMessages[user]}}</span>
+          {{ user }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="chat-with-user" *ngIf="chat.whatToShow === 'chat'">
+      <div class="chat__content">
+        <div class="chat__messages">
+          <p *ngFor="let message of chat.usersChatHistory[chat.chatWith]" class="chat__message">
+            <strong>{{message.user}}:</strong>
+            {{message.message}}
+          </p>
+        </div>
+        <form class="chat__inputs" (submit)="sendMessage($event)">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Message..." [(ngModel)]="message" name="message">
+            <span class="input-group-btn">
+          <button class="btn btn-default" type="submit" (submit)="sendMessage($event)">Send!</button>
+        </span>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+

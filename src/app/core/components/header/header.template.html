@@ -1,0 +1,38 @@
+<header class="header">
+  <img [src]="'assets/img/logo.png'"
+       [routerLink]="['/list']"
+       alt="Logo"
+       width="50"
+       height="50"
+       class="header__logo">
+  <cdp-breadcrumbs></cdp-breadcrumbs>
+
+  <div class="user pull-right" *ngIf="(login$ | async).logged">
+    <img [src]="profile$.avatar.image" alt="avatar" class="avatar" (click)="toggleNavigation()">
+    <a (click)="userLogOut()" class="user__logout btn btn-primary">
+      <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+      Log out
+    </a>
+    <div class="navigation" [@navigation]="navigationState">
+      <ul class="navigation__list">
+        <li class="navigation__item">
+          <span class="user__name"> {{profile$.name}} </span>
+          <a class="navigation__profile-settings"
+            [routerLink]="['/profile']">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li class="navigation__item" *ngIf="(login$ | async).name !== 'admin'">
+          <a [routerLink]="['/subscribed']" class="navigation__link">Subscribed <span class="badge">{{counters.subscribed}}</span></a>
+        </li>
+        <li class="navigation__item" *ngIf="(login$ | async).name !== 'admin'">
+          <a [routerLink]="['/created']" class="navigation__link">Created <span class="badge">{{counters.created}}</span></a>
+        </li>
+        <li class="navigation__item" *ngIf="(login$ | async).name === 'admin'">
+          <a [routerLink]="['/approve']" class="navigation__link">To approve <span class="badge">{{counters.approve}}</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</header>

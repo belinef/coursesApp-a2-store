@@ -1,0 +1,55 @@
+.course-edit {
+  padding: 20px;
+}
+
+.course-edit__label {
+  display: inline-block;
+  font-weight: bold;
+  min-width: 150px;
+}
+
+.course-edit__button {
+  padding: 10px 25px;
+  margin-right: 10px;
+}
+
+.course-edit--description {
+  vertical-align: top;
+}
+
+.course-edit__input--description {
+  max-width: 80%;
+  min-height: 150px;
+  max-height: 150px;
+}
+
+.course-edit__input {
+  width: 80%;
+  display: inline-block;
+}
+
+.course-edit__input--date {
+  width: 20%;
+}
+
+.course-edit__input--duration {
+  width: 10%;
+}
+
+.authors__label {
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.authors-edit__swap {
+  display: inline-block;
+  width: 75%;
+}
+
+@media screen and (max-width: 1000px){
+  .authors-edit__swap {
+    display: block;
+    width: 100%
+  }
+}

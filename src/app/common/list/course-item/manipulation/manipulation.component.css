@@ -1,0 +1,28 @@
+.course-editing {
+  width: 15%;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.course-editing__button {
+  display: block;
+  width: 50%;
+  padding: 5px 10px;
+  white-space: normal;
+  margin: 0 auto 10px;
+}
+
+.course-editing__button.subscribed {
+  background: indianred;
+}
+
+
+
+@media screen and (max-width: 780px ){
+  .course-editing__button {
+    font-size: 0;
+  }
+  .course-editing__button .glyphicon {
+    font-size: 12px;
+  }
+}

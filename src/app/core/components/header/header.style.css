@@ -1,0 +1,79 @@
+.header {
+  position: relative;
+  background: aliceblue;
+  padding: 10px 35px;
+}
+
+.header__logo {
+  margin-right: 20px;
+  cursor: pointer;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+.user {
+  position: absolute;
+  right: 40px;
+  top: 15px;
+  display: inline-block;
+}
+
+.user__name {
+  display: inline-block;
+  max-width: 163px;
+  overflow: hidden;
+  white-space: nowrap;
+  /* max-height: 40px; */
+  text-overflow: ellipsis;
+  padding: 10px;
+  color: indianred;
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  border: 1px solid gainsboro;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.navigation {
+  position: relative;
+  right: 30%;
+  width: 150%;
+  overflow: hidden;
+  border-radius: 10px;
+  z-index: 100;
+  background: #fff;
+}
+.navigation__list {
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__item {
+  display: block;
+  position: relative;
+  border-bottom:1px solid cadetblue;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navigation__link {
+  display: block;
+  padding: 10px;
+  color: #00B7FF;
+  font-size: 1.25em;
+}
+
+.navigation__profile-settings {
+  color: #4cae4c;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 2em;
+}

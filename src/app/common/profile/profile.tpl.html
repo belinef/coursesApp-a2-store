@@ -1,0 +1,105 @@
+<div class="profile">
+    <div class="profile-info profile__info">
+      <div class="profile-info__avatar">
+        <div class="avatar-container profile-info__avatar-container">
+          <img alt="avatar" class="profile-info__avatar-img" [src]="profile$.profileData.avatar.image">
+          <div class="avatar-manipulation avatar-container__manipulation">
+            <ul class="avatar-manipulation__list">
+              <li class="avatar-manipulation__item" (click)="openAvatarEditPopUp(false)">
+                <span class="glyphicon glyphicon-upload"></span>
+                Change photo
+              </li>
+              <li class="avatar-manipulation__item" (click)="openAvatarEditPopUp(true)">
+                <span class="glyphicon glyphicon-screenshot"></span>
+                Edit thumbnail
+              </li>
+              <li class="avatar-manipulation__item">
+                <span class="glyphicon glyphicon-leaf"></span>
+                Add effect
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="profile-details">
+        <div class="profile-details__user">
+            <span class="profile-details__user-name">
+              <strong [editable]="profile$.nameChanging"
+                      (editChanged)="onValueChange('name', $event)"
+                      [(contenteditableModel)]="profile$.profileData.name">
+                {{ profile$.profileData.name }}
+              </strong>
+            </span>
+            <button class="profile-details__edit btn-link"
+                    *ngIf="!profile$.nameChanging"
+                    (click)="startEdit('name')">
+              (edit)
+            </button>
+            <button class="profile-details__edit btn-link"
+                    (click)="confirm('name')"
+                    *ngIf="profile$.nameChanging">
+              (confirm)
+            </button>
+            <button class="profile-details__edit btn-link"
+                    (click)="cancelEdit('name')"
+                    *ngIf="profile$.nameChanging">
+              (cancel)
+            </button>
+        </div>
+        <div class="profile-details__info">
+            <span class="profile-details__date-of-birth">
+              <strong>Date of Birth: </strong>
+              <span *ngIf="!profile$.dateChanging">
+                {{ profile$.profileData.dateOfBirth }}
+              </span>
+            </span>
+            <ng2-datepicker
+              *ngIf="profile$.dateChanging"
+              (outputEvents)="onValueChange('dateOfBirth', $event)"
+              [options]="datePickerOptions"></ng2-datepicker>
+            <button class="profile-details__edit btn-link"
+                    (click)="startEdit('dateOfBirth')"
+                    *ngIf="!profile$.dateChanging">
+              (edit)
+            </button>
+            <button class="profile-details__edit btn-link"
+                    (click)="confirm('dateOfBirth')"
+                    *ngIf="profile$.dateChanging">
+              (confirm)
+            </button>
+            <button class="profile-details__edit btn-link"
+                    (click)="cancelEdit('dateOfBirth')"
+                    *ngIf="profile$.dateChanging">
+              (cancel)
+            </button>
+        </div>
+        <div class="profile-password">
+          <button class="profile-password__change btn btn-link" (click)="togglePasswordForm()"> Change Password </button>
+          <form action="" class="profile-password__changing-form" [ngClass]="{ hidden: !profile$.passwordForm.isOpen}">
+
+            <label for="newPass" class="profile-password__label">New Password:</label>
+            <input type="password" class="profile-password__input" id="newPass" (input)="onNewPassChange($event.target.value)">
+            <div class="profile-password__strength" [ngClass]="profile$.passwordForm.strength"></div>
+
+            <label for="confirmPass" class="profile-password__label">Confirm Password:</label>
+            <input type="password"
+                   class="profile-password__input"
+                   [ngClass]="{
+                      invalid: profile$.passwordForm.touched && isPasswordsDifferend()
+                   }"
+                   id="confirmPass"
+                   (blur)="checkPassword($event.target.value)">
+            <div class="profile-password__actions">
+              <button class="btn btn-md btn-success profile-password__save"
+                      [ngClass]="{
+                        disabled: !profile$.passwordForm.touched || isPasswordsDifferend()
+                   }">
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+</div>

@@ -1,0 +1,30 @@
+module.exports = {
+    authors: [
+        "Lil Wayne",
+        "Bob Marley",
+        "Christina Aguilera",
+        "Savage Garden",
+        "Lonestar",
+        "Enrique Iglesias",
+        "Vertical Horizon",
+        "Janet Jackson",
+        "Madonna",
+        "Destiny's Child",
+        "Ricardo \"Rikrok\" Ducent",
+        "Crazy Town",
+        "Usher",
+        "Alicia Keys",
+        "Jennifer Lopez",
+        "Sean Paul",
+        "Fantasia",
+        "James Blunt",
+        "Fergie",
+        "Rihanna",
+        "Sean Kingston",
+        "Nagano",
+        "Guf",
+        "Basta",
+        "Kasta",
+        "Lady Gaga"
+    ]
+};

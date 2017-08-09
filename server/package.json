@@ -1,0 +1,26 @@
+{
+  "name": "live-examples",
+  "version": "1.0.0",
+  "description": "Express live examples",
+  "main": "simple-app.js",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "http": "0.0.0",
+    "request": "^2.69.0",
+    "socket.io": "^1.7.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "keywords": [],
+  "author": "Yevhen Bashmakov",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "colors": "^1.1.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1"
+  }
+}

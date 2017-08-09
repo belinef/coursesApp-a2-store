@@ -1,0 +1,41 @@
+<div class="courses-list">
+  <div class="manipulation">
+    <form class="manipulation-form">
+      <input type="text"
+             class="manipulation-form__search form-control"
+             placeholder="Enter name or date"
+             [formControl]="searchControl">
+      <button class="manipulation-form__find btn btn-success"
+      (click)="handleSearch()">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        Find
+      </button>
+    </form>
+    <button type="button" class="manipulation__addCourse btn btn-warning" [routerLink]="['/new']">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      add course
+    </button>
+  </div>
+  <div class="course-list--empty">
+    <div *ngIf="!(courses$ | async)?.courses.length && !(courses$ | async)?.loading">
+      No courses to show
+    </div>
+    <div class="courses-loading" *ngIf="(courses$ | async)?.loading">
+      <img [src]="'assets/img/loading-courses.gif'"
+           height="150">
+    </div>
+  </div>
+    <cdp-course *ngFor="let course of (courses$ | async)?.courses"
+                [course]="course"
+                >
+      <cdp-course-manipulation [manipulationType]="listType"
+                               [courseSubscribtion]="course.subscribed"
+                               [courseId]="course.id"
+                               (onSubscribe)="onSubscribe($event)"
+                               (onCourseDelete)="deleteCourse($event)"
+                               (onEditCourse)="editCourse($event)"
+                               (onApproveCourse)="approveCourse($event)"
+                               (onRejectCourse)="rejectCourse($event)">
+      </cdp-course-manipulation>
+    </cdp-course>
+</div>

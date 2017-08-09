@@ -1,0 +1,117 @@
+.holder {
+  position: fixed;
+  z-index: 90;
+  background: rgba(0,0,0,.3);
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+}
+
+
+.admin-chat {
+  width: 534px;
+  height: 230px;
+  overflow: hidden;
+  position: fixed;
+  padding-right: 103px;
+  background: transparent;
+  right: 25px;
+  bottom: 10px;
+  z-index: 100;
+  border-radius: 10px;
+  transition: 1s all;
+}
+
+.admin-chat.small {
+  width: auto;
+  height: 46px;
+}
+
+.admin-chat__toggler-btn {
+  position: absolute;
+  background: #20b2aa;
+  right: 0;
+  bottom: 5px;
+}
+
+.users-list,
+.chat-with-user {
+  background: #fff;
+  padding: 3px;
+  position: relative;
+  min-height: 210px;
+  top:10px;
+  left: 10px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 21px 1px rgba(32,178,170,1);
+  -moz-box-shadow: 0 0 21px 1px rgba(32,178,170,1);
+  box-shadow: 0 0 21px 1px rgba(32,178,170,1);
+}
+
+.chat-with-user {
+  position: relative;
+  height: 100%;
+  max-height: 210px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.list-group {
+  margin: 0;
+  max-height: 210px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+.list-group-item:hover {
+  background: silver;
+}
+
+.chat.open {
+  left:0;
+}
+
+.glyphicon-star {
+  color: red;
+}
+
+.glyphicon-star.online {
+  color: green;
+}
+
+.chat__inputs {
+  position: absolute;
+  bottom: 1em;
+}
+
+
+.chat__messages {
+  background: azure;
+  padding: 10px 0;
+  max-height: 154px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.chat__message {
+  margin-bottom: 0;
+  padding: 0 10px;
+}
+
+.chat__message.user {
+  text-align: left;
+}
+.chat__message.admin {
+  background: cornsilk;
+}
+
+.chat__inputs {
+  width: 100%;
+  padding:0 10px;
+}

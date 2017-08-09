@@ -1,0 +1,45 @@
+<div class="modal-dialog avatar-changing">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" (click)="close()" >&times;</button>
+    </div>
+    <div class="modal-body">
+      <p class="avatar-changing__text" *ngIf="!edit">
+        Please upload a real photo of yourself, so that friends can recognize you.
+        We support JPG, GIF or PNG files.</p>
+      <div class="avatar-changing__uploader-wrap">
+
+        <div class="pull-left"
+             ondragover="return false;"
+             (dragenter)="handleDragEnter()"
+             (dragover)="handleDragEnter()"
+             (dragleave)="handleDragLeave()"
+             (drop)="handleDrop($event)"
+             [ngClass]="{'dragging': dragging && !edit}">
+          <h3 *ngIf="!edit">
+            Drop image or click button
+            <div class="file-upload">
+              <span class="text">upload</span>
+              <input id="custom-input" type="file" (change)="fileChangeListener($event)">
+            </div>
+          </h3>
+
+          <img-cropper #cropper
+                       [image]="avatar"
+                       [settings]="cropperSettings"></img-cropper>
+          <br>
+          <span class="result rounded" *ngIf="avatar.image" >
+                <img [src]="avatar.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+            </span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="avatar-changing__text--footer" *ngIf="!edit">
+        If you have any problems with your upload, try using a smaller picture.
+      </p>
+      <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
+      <button type="button" class="btn btn-default" (click)="close()" >Cancel</button>
+    </div>
+  </div>
+</div>

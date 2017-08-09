@@ -1,0 +1,35 @@
+<div class="chat" [ngClass]="{'open': chat.open}">
+  <div class="chat__navigation">
+    <nav class="navbar navbar-inverse">
+      <span class="chat__navbar-title">Chat with Admin</span>
+      <span class="btn btn-default btn-md pull-right" (click)="closeChat()">
+        <span class="glyphicon glyphicon-star" aria-hidden="true" [ngClass]="{'online': chat.adminOnline}"></span>
+        Admin
+      </span>
+    </nav>
+    <span class="btn btn-default btn-lg chat__toggler-btn-lg" (click)="openChat()" [ngClass]="{'hidden': chat.open}">
+      <span class="glyphicon glyphicon-comment" aria-hidden="true" [ngClass]="{'online': chat.adminOnline}"></span> Admin
+
+        <span class="badge" *ngIf="chat.unreadedMessages > 0"> {{chat.unreadedMessages}}</span>
+    </span>
+  </div>
+
+
+  <div class="chat__content">
+    <div class="chat__messages">
+      <p *ngFor="let message of chat.messages" class="chat__message">
+        <strong>{{message.user}}:</strong>
+        {{message.text}}
+      </p>
+    </div>
+    <form class="chat__inputs" (submit)="sendMessage($event)">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Message..." [(ngModel)]="message" name="message">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="submit" (submit)="sendMessage($event)">Send!</button>
+      </span>
+      </div>
+    </form>
+  </div>
+</div>
+

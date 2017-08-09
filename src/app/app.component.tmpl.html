@@ -1,0 +1,14 @@
+<cdp-header></cdp-header>
+<toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+<chat *ngIf="login.logged && login.name !== 'admin'"></chat>
+<admin-chat *ngIf="login.logged && login.name === 'admin'"></admin-chat>
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+
+<footer class="footer">
+  <div class="copyright">
+    &copy; Litvinov Ievgenii.
+  </div>
+</footer>

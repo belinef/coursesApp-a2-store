@@ -1,0 +1,161 @@
+.profile {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  grid-template-rows: 75px 1fr 150px;
+}
+
+.profile-info {
+  grid-area: 2/2/3/3;
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  grid-column-gap: 10px;
+  padding: 25px 10%;
+  border-radius: 20px;
+  border: 1px solid lavender;
+  box-shadow: 1px 1px 24px lightgrey;
+}
+
+.avatar-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-container:hover .avatar-manipulation {
+  bottom: 0;
+  opacity: 1;
+}
+
+.avatar-manipulation {
+  background: rgba(0,0,0,.3);
+  position: absolute;
+  bottom: -100%;
+  height: 110px;
+  width: 100%;
+  opacity: 0;
+  transition: .7s bottom, 1s opacity;
+}
+
+.avatar-manipulation__list {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 0;
+}
+
+.avatar-manipulation__item {
+  color: #c7f1ff;
+  cursor: pointer;
+  padding: 5px 20px;
+}
+
+.avatar-manipulation__item:hover {
+  background-color: #C7F1FF;
+  color: #000;
+  box-shadow: 1px 1px 5px;
+}
+
+.profile-info__avatar-container {
+  max-width: 270px;
+  min-height: 250px;
+  margin: 0 auto;
+}
+
+.profile-details__user {
+  display: flex;
+}
+
+.profile-details__user-name {
+  font-size: 36px;
+}
+
+#confirmPass.invalid {
+  border: 1px solid crimson;
+}
+
+.profile-details__user-name strong {
+  text-decoration: underline;
+  text-decoration-color: brown;
+}
+
+.profile-details__date-of-birth {
+  color: #BAEB2E;
+  font-size: 20px;
+}
+
+.profile-details__date-of-birth strong {
+  color: #333;
+}
+
+.profile-info__avatar-img {
+  width: 100%;
+}
+
+.profile-password__actions {
+  grid-column: 2 / 3;
+  position: relative;
+}
+
+.profile-password__save {
+  margin-top: 25px;
+  float: right;
+}
+
+.profile-details {
+  display: grid;
+  grid-template-rows: 50px 200px 1fr;
+}
+
+.profile-password__changing-form {
+  display: grid;
+  grid-template-columns: 135px 35%;
+  grid-template-rows: 1fr 30px 1fr;
+  margin-top: 25px;
+}
+
+.profile-password__strength {
+  height: 10px;
+  width: 0;
+  grid-column: 2 / 3;
+  background-color: #fff;
+  transition: .3s all;
+}
+
+.profile-password__strength.weak {
+  background-color: indianred;
+  width: 25%;
+}
+
+.profile-password__strength.low {
+  background-color: orangered;
+  width: 35%;
+}
+
+.profile-password__strength.middle {
+  background-color: yellow;
+
+  width: 50%;
+}
+
+.profile-password__strength.high {
+  background-color: dodgerblue;
+
+  width: 80%;
+}
+
+.profile-password__strength.max {
+  background-color: lawngreen;
+
+  width: 100%;
+}
+
+@media screen and (max-width: 768px){
+  .profile-info__save {
+    right: 0;
+  }
+
+  .profile-password__changing-form {
+    grid-template-columns: 1fr;
+    grid-row-gap: 10px;
+    margin-top: 25px;
+  }
+}
